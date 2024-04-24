@@ -22,8 +22,8 @@ const isDataEmpty = !Array.isArray(cars) || cars.length < 1 || !cars;
 </div>
 
 <div className="home__filter-container">
-  <CustomFilter title = "fuel" /> 
-  <CustomFilter title = "fuel" /> 
+  {/* <CustomFilter title = "fuel" /> 
+  <CustomFilter title = "fuel" />  */}
 
 </div>
 {/* (!isDataEmpty ) */}
