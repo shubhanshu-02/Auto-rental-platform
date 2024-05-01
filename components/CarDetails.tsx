@@ -10,8 +10,9 @@ interface CarDetailsProps {
     closeModal: () => void;
     car: CarProps;
 }
-const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
-    return (
+
+
+const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
         <>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -35,11 +36,21 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                                 leave="ease-in duration-200"
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95">
-                                  <Dialog.Panel>
-                                    <button type="button" onClick={closeModal}>
-                                        <Image src="close.svg" alt="close" width={20} height={20} className="object-contain" />
+                                <Dialog.Panel className='relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5'>
+                                    <button
+                                        type='button'
+                                        className='absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full'
+                                        onClick={closeModal}
+                                    >
+                                        <Image
+                                            src='/close.svg'
+                                            alt='close'
+                                            width={20}
+                                            height={20}
+                                            className='object-contain'
+                                        />
                                     </button>
-                                  </Dialog.Panel>
+                                </Dialog.Panel>
 
                             </Transition.Child>
                         </div>
@@ -49,6 +60,5 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
             </Transition>
         </>
     )
-}
 
 export default CarDetails
